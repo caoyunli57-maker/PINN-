@@ -1,0 +1,26 @@
+# 消融实验配置 - 无物理约束
+# 纯数据驱动的神经网络模型
+
+# 继承基础配置
+base: "base.yaml"
+
+# 实验名称
+experiment_name: "ablation_no_physics"
+
+# 损失函数权重
+loss_weights:
+  data_loss: 1.0
+  physics_loss: 0.0  # 关闭物理损失
+  regularization: 0.0001
+
+# 物理约束参数
+physics:
+  enable: false  # 禁用物理约束
+  pde_type: null
+  boundary_weight: 0.0
+  initial_weight: 0.0
+  residual_points: 0
+
+# 自适应权重
+adaptive_weights:
+  enable: false

@@ -1,0 +1,40 @@
+# 基础配置文件
+# 所有实验的通用配置
+
+# 训练参数
+training:
+  epochs: 1000
+  batch_size: 64
+  learning_rate: 0.001
+  optimizer: "adam"
+  scheduler: "cosine"
+  early_stopping_patience: 50
+
+# 模型参数
+model:
+  hidden_layers: [128, 128, 128, 128]
+  activation: "tanh"
+  use_batch_norm: false
+  dropout_rate: 0.0
+
+# 数据参数
+data:
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  normalize: true
+
+# 日志和保存
+logging:
+  log_dir: "logs"
+  save_dir: "checkpoints"
+  log_interval: 10
+  save_interval: 50
+  use_tensorboard: true
+  use_wandb: false
+
+# 随机种子
+seed: 42
+
+# 设备
+device: "cuda"  # cuda, cpu

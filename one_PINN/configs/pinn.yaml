@@ -1,0 +1,28 @@
+# PINN 完整模型配置
+# 包含物理约束的完整 PINN 模型
+
+# 继承基础配置
+base: "base.yaml"
+
+# 实验名称
+experiment_name: "pinn_full"
+
+# 损失函数权重
+loss_weights:
+  data_loss: 1.0
+  physics_loss: 0.01  # 物理损失权重
+  regularization: 0.0001
+
+# 物理约束参数
+physics:
+  enable: true
+  pde_type: "heat_equation"  # 根据具体问题修改
+  boundary_weight: 1.0
+  initial_weight: 1.0
+  residual_points: 1000  # PDE 残差采样点数
+
+# 自适应权重
+adaptive_weights:
+  enable: false
+  method: "gradnorm"  # gradnorm, softadapt
+  update_interval: 100
